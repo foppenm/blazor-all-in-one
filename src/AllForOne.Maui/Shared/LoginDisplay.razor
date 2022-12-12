@@ -1,0 +1,24 @@
+﻿<AuthorizeView>
+    <Authorized>
+        Hello, @context.User.Identity?.Name!
+        <button class="nav-link btn btn-link" @onclick="SignOutButton_Clicked">Log out</button>
+    </Authorized>
+    <NotAuthorized>
+        <button class="nav-link btn btn-link" @onclick="OnSignInClicked">Log in</button>
+    </NotAuthorized>
+</AuthorizeView>
+
+@code {
+[Inject]
+AuthenticationStateProvider AuthenticationStateProvider { get; set; }
+
+private async void OnSignInClicked()
+{
+    await ((B2cAuthenticationStateProvider)AuthenticationStateProvider).LogInAsync();
+}
+
+private async void SignOutButton_Clicked()
+{
+    await ((B2cAuthenticationStateProvider)AuthenticationStateProvider).Logout();
+}
+}

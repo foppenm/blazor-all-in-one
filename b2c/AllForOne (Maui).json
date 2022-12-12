@@ -1,0 +1,88 @@
+{
+	"id": "59a4d93e-f5c1-42f2-b8f5-901c715002e1",
+	"acceptMappedClaims": null,
+	"accessTokenAcceptedVersion": 2,
+	"addIns": [],
+	"allowPublicClient": null,
+	"appId": "cd01c71b-2101-41fa-9528-1695420fbbe1",
+	"appRoles": [],
+	"oauth2AllowUrlPathMatching": false,
+	"createdDateTime": "2022-11-21T17:51:30Z",
+	"description": null,
+	"certification": null,
+	"disabledByMicrosoftStatus": null,
+	"groupMembershipClaims": null,
+	"identifierUris": [],
+	"informationalUrls": {
+		"termsOfService": null,
+		"support": null,
+		"privacy": null,
+		"marketing": null
+	},
+	"keyCredentials": [],
+	"knownClientApplications": [],
+	"logoUrl": null,
+	"logoutUrl": null,
+	"name": "AllForOne (Maui)",
+	"notes": null,
+	"oauth2AllowIdTokenImplicitFlow": false,
+	"oauth2AllowImplicitFlow": false,
+	"oauth2Permissions": [],
+	"oauth2RequirePostResponse": false,
+	"optionalClaims": null,
+	"orgRestrictions": [],
+	"parentalControlSettings": {
+		"countriesBlockedForMinors": [],
+		"legalAgeGroupRule": "Allow"
+	},
+	"passwordCredentials": [],
+	"preAuthorizedApplications": [],
+	"publisherDomain": "testorg1234fds3.onmicrosoft.com",
+	"replyUrlsWithType": [
+		{
+			"url": "http://localhost",
+			"type": "InstalledClient"
+		},
+		{
+			"url": "msalcd01c71b-2101-41fa-9528-1695420fbbe1://auth",
+			"type": "InstalledClient"
+		},
+		{
+			"url": "https://testorg1234fds3.b2clogin.com/oauth2/nativeclient",
+			"type": "InstalledClient"
+		},
+		{
+			"url": "quickstart://auth",
+			"type": "InstalledClient"
+		}
+	],
+	"requiredResourceAccess": [
+		{
+			"resourceAppId": "1352120a-4fbb-4fee-bb40-b6e55edd4629",
+			"resourceAccess": [
+				{
+					"id": "98e63bda-5031-472f-8ca9-dd34a79a21b5",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "00000003-0000-0000-c000-000000000000",
+			"resourceAccess": [
+				{
+					"id": "37f7f235-527c-4136-accd-4a02d197296e",
+					"type": "Scope"
+				},
+				{
+					"id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+					"type": "Scope"
+				}
+			]
+		}
+	],
+	"samlMetadataUrl": null,
+	"signInUrl": null,
+	"signInAudience": "AzureADandPersonalMicrosoftAccount",
+	"tags": [],
+	"tokenEncryptionKeyId": null
+}

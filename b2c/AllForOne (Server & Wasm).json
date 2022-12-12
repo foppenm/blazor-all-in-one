@@ -1,0 +1,104 @@
+{
+	"id": "f39cb8b3-7099-4fd2-b3fb-d75bb88aa4ea",
+	"acceptMappedClaims": null,
+	"accessTokenAcceptedVersion": 2,
+	"addIns": [],
+	"allowPublicClient": null,
+	"appId": "d139e8c0-05cb-417c-9362-7e9840967712",
+	"appRoles": [],
+	"oauth2AllowUrlPathMatching": false,
+	"createdDateTime": "2022-11-21T07:32:06Z",
+	"description": null,
+	"certification": null,
+	"disabledByMicrosoftStatus": null,
+	"groupMembershipClaims": null,
+	"identifierUris": [],
+	"informationalUrls": {
+		"termsOfService": null,
+		"support": null,
+		"privacy": null,
+		"marketing": null
+	},
+	"keyCredentials": [],
+	"knownClientApplications": [],
+	"logoUrl": null,
+	"logoutUrl": null,
+	"name": "AllForOne (Client)",
+	"notes": null,
+	"oauth2AllowIdTokenImplicitFlow": true,
+	"oauth2AllowImplicitFlow": true,
+	"oauth2Permissions": [],
+	"oauth2RequirePostResponse": false,
+	"optionalClaims": null,
+	"orgRestrictions": [],
+	"parentalControlSettings": {
+		"countriesBlockedForMinors": [],
+		"legalAgeGroupRule": "Allow"
+	},
+	"passwordCredentials": [],
+	"preAuthorizedApplications": [],
+	"publisherDomain": "testorg1234fds3.onmicrosoft.com",
+	"replyUrlsWithType": [
+		{
+			"url": "https://localhost:44318/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "http://localhost:51532/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "https://localhost:5005/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "http://localhost:5232/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "https://localhost:44384/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "http://localhost:8314/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "https://localhost:5003/signin-oidc",
+			"type": "Web"
+		},
+		{
+			"url": "https://localhost:5005/authentication/login-callback",
+			"type": "Spa"
+		}
+	],
+	"requiredResourceAccess": [
+		{
+			"resourceAppId": "1352120a-4fbb-4fee-bb40-b6e55edd4629",
+			"resourceAccess": [
+				{
+					"id": "98e63bda-5031-472f-8ca9-dd34a79a21b5",
+					"type": "Scope"
+				}
+			]
+		},
+		{
+			"resourceAppId": "00000003-0000-0000-c000-000000000000",
+			"resourceAccess": [
+				{
+					"id": "37f7f235-527c-4136-accd-4a02d197296e",
+					"type": "Scope"
+				},
+				{
+					"id": "7427e0e9-2fba-42fe-b0c0-848c9e6a8182",
+					"type": "Scope"
+				}
+			]
+		}
+	],
+	"samlMetadataUrl": null,
+	"signInUrl": null,
+	"signInAudience": "AzureADandPersonalMicrosoftAccount",
+	"tags": [],
+	"tokenEncryptionKeyId": null
+}

@@ -1,0 +1,18 @@
+﻿<CascadingAuthenticationState>
+<!--
+    AppAssembly="@typeof(App).Assembly" -> Routing to pages from this assembly
+    AdditionalAssemblies="new[] { typeof(AllForOne.RazorClassLibrary.Component1).Assembly }"> -> Routing to pages from another assembly
+-->
+<Router AppAssembly="@typeof(Main).Assembly"
+        AdditionalAssemblies="new[] { typeof(AllForOne.RazorClassLibrary.Component1).Assembly }">
+    <Found Context="routeData">
+        <RouteView RouteData="@routeData" DefaultLayout="@typeof(MainLayout)" />
+        <FocusOnNavigate RouteData="@routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <LayoutView Layout="@typeof(MainLayout)">
+            <p role="alert">Sorry, there's nothing at this address.</p>
+        </LayoutView>
+    </NotFound>
+</Router>
+</CascadingAuthenticationState>
