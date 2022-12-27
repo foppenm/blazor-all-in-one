@@ -1,4 +1,8 @@
-﻿namespace AllForOne.Authentication;
+﻿using AllForOne.Maui.Authentication;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
+
+namespace AllForOne.Authentication;
 
 /// <summary>
 /// Platform specific configuration.
@@ -6,14 +10,9 @@
 public class PlatformConfig
 {
     /// <summary>
-    /// Instance to store data
-    /// </summary>
-    public static PlatformConfig Instance { get; } = new PlatformConfig();
-
-    /// <summary>
     /// Platform specific Redirect URI
     /// </summary>
-    public string RedirectUri { get; set; } = $"msal{B2CConstants.ClientID}://auth";
+    public string RedirectUri { get; }
 
     /// <summary>
     /// Platform specific parent window
@@ -21,7 +20,9 @@ public class PlatformConfig
     public object ParentWindow { get; set; }
 
     // private constructor to ensure singleton
-    private PlatformConfig()
+    public PlatformConfig(IConfiguration configuration)
     {
+        var b2cSettings = configuration.GetRequiredSection(B2cSettings.SectionName).Get<B2cSettings>();
+        RedirectUri = $"msal{b2cSettings.ClientID}://auth";
     }
 }

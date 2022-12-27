@@ -8,13 +8,7 @@ public class WeatherForecastService : IWeatherForecastService
 {
     private readonly HttpClient httpClient;
 
-    public WeatherForecastService(HttpClient httpClient)
-    {
-        this.httpClient = httpClient;
-    }
+    public WeatherForecastService(HttpClient httpClient) => this.httpClient = httpClient;
 
-    public Task<WeatherForecast[]> GetForecastAsync()
-    {
-        return httpClient.GetFromJsonAsync<WeatherForecast[]>("api/WeatherForecast");
-    }
+    public Task<WeatherForecast[]> GetForecastAsync() => httpClient.GetFromJsonAsync<WeatherForecast[]>("api/WeatherForecast");
 }

@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using AllForOne.Authentication;
+﻿using System.Security.Claims;
 using Microsoft.AspNetCore.Components.Authorization;
 using Microsoft.Identity.Client;
+using Microsoft.Extensions.Options;
 
 namespace AllForOne.Maui.Authentication;
 
@@ -16,6 +10,14 @@ public class B2cAuthenticationStateProvider : AuthenticationStateProvider
     //https://learn.microsoft.com/en-us/aspnet/core/blazor/hybrid/security/?view=aspnetcore-6.0&pivots=maui#handle-authentication-within-the-blazorwebview-option-2
 
     private ClaimsPrincipal currentUser = new ClaimsPrincipal(new ClaimsIdentity());
+    private readonly B2cSettings b2cSettings;
+    private readonly IAuthenticationService authenticationService;
+
+    public B2cAuthenticationStateProvider(IOptions<B2cSettings> options, IAuthenticationService authenticationService)
+    {
+        b2cSettings = options.Value;
+        this.authenticationService = authenticationService;
+    }
 
     public override Task<AuthenticationState> GetAuthenticationStateAsync() =>
         Task.FromResult(new AuthenticationState(currentUser));
@@ -51,12 +53,12 @@ public class B2cAuthenticationStateProvider : AuthenticationStateProvider
         {
             // First attempt silent login, which checks the cache for an existing valid token.
             // If this is very first time or user has signed out, it will throw MsalUiRequiredException
-            result = await B2cClient.Instance.AcquireTokenSilentAsync(B2CConstants.Scopes).ConfigureAwait(false);
+            result = await authenticationService.AcquireTokenSilentAsync(b2cSettings.Scopes).ConfigureAwait(false);
         }
         catch (MsalUiRequiredException)
         {
             // This executes UI interaction to obtain token
-            result = await B2cClient.Instance.AcquireTokenInteractiveAsync(B2CConstants.Scopes).ConfigureAwait(false);
+            result = await authenticationService.AcquireTokenInteractiveAsync(b2cSettings.Scopes).ConfigureAwait(false);
         }
         catch (Exception ex)
         {
@@ -80,14 +82,10 @@ public class B2cAuthenticationStateProvider : AuthenticationStateProvider
 
     public async Task Logout()
     {
-        _ = await B2cClient.Instance.SignOutAsync().ContinueWith(async (t) =>
+        _ = await authenticationService.SignOutAsync().ContinueWith(async (t) =>
         {
-
+            currentUser = new ClaimsPrincipal(new ClaimsIdentity());
+            NotifyAuthenticationStateChanged(Task.FromResult(new AuthenticationState(currentUser)));
         }).ConfigureAwait(false);
-
-
-        currentUser = new ClaimsPrincipal(new ClaimsIdentity());
-        NotifyAuthenticationStateChanged(
-            Task.FromResult(new AuthenticationState(currentUser)));
     }
 }

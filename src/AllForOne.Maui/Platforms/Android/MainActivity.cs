@@ -14,7 +14,7 @@ public class MainActivity : MauiAppCompatActivity
     {
         base.OnCreate(savedInstanceState);
         // configure platform specific params
-        PlatformConfig.Instance.ParentWindow = this;
+        MauiApplication.Current.Services.GetRequiredService<PlatformConfig>().ParentWindow = this;
     }
 
     protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)

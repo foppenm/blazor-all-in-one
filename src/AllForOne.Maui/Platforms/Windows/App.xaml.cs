@@ -25,8 +25,9 @@ public partial class App : MauiWinUIApplication
     protected override void OnLaunched(LaunchActivatedEventArgs args)
     {
         base.OnLaunched(args);
-
+        
         var app = AllForOne.Maui.App.Current;
-        PlatformConfig.Instance.ParentWindow = ((MauiWinUIWindow)app.Windows[0].Handler.PlatformView).WindowHandle;
+        var platformConfig = this.Services.GetService<PlatformConfig>();
+        platformConfig.ParentWindow = ((MauiWinUIWindow)app.Windows[0].Handler.PlatformView).WindowHandle;
     }
 }

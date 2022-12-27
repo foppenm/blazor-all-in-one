@@ -10,7 +10,8 @@ builder.RootComponents.Add<HeadOutlet>("head::after");
 
 builder.Services.AddScoped<CustomAuthorizationMessageHandler>();
 
-builder.Services.AddHttpClient("ServerAPI", client => client.BaseAddress = new Uri("https://localhost:5003"))
+var apiUrl = builder.Configuration.GetValue<string>("ApiBaseUrl");
+builder.Services.AddHttpClient("ServerAPI", client => client.BaseAddress = new Uri(apiUrl))
    .AddHttpMessageHandler<CustomAuthorizationMessageHandler>();
 
 builder.Services.AddTransient(sp => sp.GetRequiredService<IHttpClientFactory>().CreateClient("ServerAPI"));
